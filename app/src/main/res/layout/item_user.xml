@@ -30,7 +30,6 @@
             android:layout_weight="2"
             android:gravity="center"
             tools:text="Password"
-            android:digits="qwertyuiopasdfghjklzxcvbnm1234567890"
             android:textColor="#666666"
             android:textSize="18sp" />
 

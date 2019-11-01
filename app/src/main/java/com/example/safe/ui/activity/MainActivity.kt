@@ -2,6 +2,9 @@ package com.example.safe.ui.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +26,7 @@ import com.example.safe.presenter.MainPresenter
 import com.example.safe.ui.adapter.UserAdapter
 import com.example.safe.utils.*
 import com.jakewharton.rxbinding3.view.clicks
+import com.jakewharton.rxbinding3.widget.checkedChanges
 import kotlinx.android.synthetic.main.activity_main.*
 import java.security.KeyPairGenerator
 import java.security.PrivateKey
@@ -46,7 +50,6 @@ class MainActivity : BaseActivity<MainPresenter>(), MainContract.View {
             lifecycleOwner(this@MainActivity)
         }
     }
-
 
     override fun queryAll(list: List<UserBean>) {
         materialDialog = MaterialDialog(this, BottomSheet(LayoutMode.WRAP_CONTENT)).show {
@@ -148,5 +151,9 @@ class MainActivity : BaseActivity<MainPresenter>(), MainContract.View {
         tv_watch.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe {
             mPresenter?.load()
         }.bindToLifecycle(this)
+        show_password.checkedChanges().subscribe {
+            et_password.transformationMethod = if(it) HideReturnsTransformationMethod.getInstance() else PasswordTransformationMethod.getInstance()
+            et_password.setSelection(et_password.text!!.length)
+        }
     }
 }
