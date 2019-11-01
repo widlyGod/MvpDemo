@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Safe</string>
+    <string name="clean">清除</string>
+    <string name="user">用户表</string>
+    <string name="register">注册成功</string>
+    <string name="choose">选择</string>
+    <string name="choose_encode_type">选择加密方式</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_fail">登录失败</string>
+</resources>

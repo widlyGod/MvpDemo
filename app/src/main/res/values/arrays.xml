@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="encodeType">
+    <item>Md5</item>
+    <item>Sha1</item>
+    <item>DES</item>
+    <item>RSA</item>
+  </string-array>
+
+</resources>
